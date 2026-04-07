@@ -1,7 +1,11 @@
 aid: archrock
-url: https://raw.githubusercontent.com/api-evangelist/archrock/refs/heads/main/apis.yml
+url: 
+  https://raw.githubusercontent.com/api-evangelist/archrock/refs/heads/main/apis.yml
 modified: '2026-03-23'
 apis: []
 common:
   - type: Website
     url: https://www.archrock.com
+description: >-
+  Archrock (AROC) is the premier provider of natural gas compression services and
+  equipment to customers in the oil and natural gas industry throughout the U.S.
