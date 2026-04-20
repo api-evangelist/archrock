@@ -1,0 +1,108 @@
+rules:
+  archrock-quarterly-year-required:
+    description: Quarterly financials must include year
+    message: QuarterlyFinancials must have a year property
+    severity: error
+    given: "$.components.schemas.QuarterlyFinancials.properties"
+    then:
+      field: year
+      function: truthy
+
+  archrock-fleet-utilization-rate:
+    description: Fleet statistics must include utilization rate
+    message: FleetStatistics must have a utilizationRate property
+    severity: error
+    given: "$.components.schemas.FleetStatistics.properties"
+    then:
+      field: utilizationRate
+      function: truthy
+
+  archrock-equipment-status-enum:
+    description: Equipment status must be a valid enum value
+    message: Equipment status must be active, idle, or maintenance
+    severity: error
+    given: "$.components.schemas.Equipment.properties.status"
+    then:
+      field: enum
+      function: truthy
+
+  archrock-sec-filing-type-enum:
+    description: SEC filing type must be a valid enum value
+    message: SecFiling type must be a valid SEC form type
+    severity: error
+    given: "$.components.schemas.SecFiling.properties.type"
+    then:
+      field: enum
+      function: truthy
+
+  archrock-list-responses-have-total:
+    description: List responses must include a total count
+    message: List schema must include a total property
+    severity: warn
+    given: "$.components.schemas[*List].properties"
+    then:
+      field: total
+      function: truthy
+
+  archrock-list-responses-have-limit:
+    description: List responses must include a limit field
+    message: List schema must include a limit property
+    severity: warn
+    given: "$.components.schemas[*List].properties"
+    then:
+      field: limit
+      function: truthy
+
+  archrock-operations-have-tags:
+    description: All API operations must have tags
+    message: Operation must include at least one tag
+    severity: warn
+    given: "$.paths[*][get,post,put,patch,delete]"
+    then:
+      field: tags
+      function: truthy
+
+  archrock-operations-have-summary:
+    description: All API operations must have a summary
+    message: Operation must include a summary
+    severity: error
+    given: "$.paths[*][get,post,put,patch,delete]"
+    then:
+      field: summary
+      function: truthy
+
+  archrock-operations-have-operation-id:
+    description: All API operations must have an operationId
+    message: Operation must include an operationId
+    severity: error
+    given: "$.paths[*][get,post,put,patch,delete]"
+    then:
+      field: operationId
+      function: truthy
+
+  archrock-api-key-security:
+    description: API must use API key security scheme
+    message: API should define an ApiKey security scheme
+    severity: warn
+    given: "$.components.securitySchemes"
+    then:
+      field: ApiKeyAuth
+      function: truthy
+
+  archrock-info-contact-required:
+    description: API info must include contact information
+    message: Info object must have a contact field
+    severity: warn
+    given: "$.info"
+    then:
+      field: contact
+      function: truthy
+
+  archrock-servers-defined:
+    description: API must define at least one server
+    message: Servers array must be defined
+    severity: error
+    given: "$"
+    then:
+      field: servers
+      function: truthy

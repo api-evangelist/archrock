@@ -1,0 +1,21 @@
+{
+  "$schema": "https://raw.githubusercontent.com/api-evangelist/archrock/refs/heads/main/json-schema/archrock-investor-relations-api-equipment-list-schema.json",
+  "example": {
+    "total": 42,
+    "offset": 42,
+    "limit": 42,
+    "equipment": [
+      {
+        "id": {},
+        "unitNumber": {},
+        "horsepowerRating": {},
+        "engineType": {},
+        "compressionType": {},
+        "status": {},
+        "location": {},
+        "customer": {},
+        "deploymentDate": {}
+      }
+    ]
+  }
+}

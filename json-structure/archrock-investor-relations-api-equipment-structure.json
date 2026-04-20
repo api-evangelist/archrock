@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/archrock/refs/heads/main/json-structure/archrock-investor-relations-api-equipment-structure.json",
+  "title": "Equipment",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "unitNumber": {
+      "type": "string"
+    },
+    "horsepowerRating": {
+      "type": "integer"
+    },
+    "engineType": {
+      "type": "string"
+    },
+    "compressionType": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "idle",
+        "maintenance"
+      ]
+    },
+    "location": {
+      "type": "string"
+    },
+    "customer": {
+      "type": "string"
+    },
+    "deploymentDate": {
+      "type": "string",
+      "format": "date"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "aroc": "https://www.archrock.com/vocab#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "QuarterlyFinancials": "aroc:QuarterlyFinancials",
+    "FleetStatistics": "aroc:FleetStatistics",
+    "Equipment": "aroc:Equipment",
+    "EquipmentList": "aroc:EquipmentList",
+    "SecFiling": "aroc:SecFiling",
+    "SecFilingList": "aroc:SecFilingList",
+    "OperationalMetrics": "aroc:OperationalMetrics"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/archrock/refs/heads/main/json-schema/archrock-investor-relations-api-sec-filing-list-schema.json",
+  "title": "SecFilingList",
+  "type": "object",
+  "properties": {
+    "total": {
+      "type": "integer"
+    },
+    "offset": {
+      "type": "integer"
+    },
+    "limit": {
+      "type": "integer"
+    },
+    "filings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {},
+          "type": {},
+          "filingDate": {},
+          "periodOfReport": {},
+          "description": {},
+          "secUrl": {},
+          "documentUrl": {}
+        }
+      }
+    }
+  }
+}

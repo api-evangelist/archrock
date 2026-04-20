@@ -1,0 +1,19 @@
+{
+  "$schema": "https://raw.githubusercontent.com/api-evangelist/archrock/refs/heads/main/json-schema/archrock-investor-relations-api-sec-filing-list-schema.json",
+  "example": {
+    "total": 42,
+    "offset": 42,
+    "limit": 42,
+    "filings": [
+      {
+        "id": {},
+        "type": {},
+        "filingDate": {},
+        "periodOfReport": {},
+        "description": {},
+        "secUrl": {},
+        "documentUrl": {}
+      }
+    ]
+  }
+}

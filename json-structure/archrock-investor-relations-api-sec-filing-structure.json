@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/archrock/refs/heads/main/json-structure/archrock-investor-relations-api-sec-filing-structure.json",
+  "title": "SecFiling",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "10-K",
+        "10-Q",
+        "8-K",
+        "DEF14A",
+        "SC13G"
+      ]
+    },
+    "filingDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "periodOfReport": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "secUrl": {
+      "type": "string"
+    },
+    "documentUrl": {
+      "type": "string"
+    }
+  }
+}

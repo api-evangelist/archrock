@@ -1,0 +1,33 @@
+vocabulary:
+  name: Archrock Vocabulary
+  description: Operational vocabulary for the Archrock Investor Relations API
+  resources:
+    - name: QuarterlyFinancials
+      description: Financial results for a fiscal quarter including revenue, EBITDA, and earnings per share
+    - name: FleetStatistics
+      description: Statistics about the Archrock compression fleet including horsepower and utilization rates
+    - name: Equipment
+      description: An individual compression unit in the Archrock fleet
+    - name: SecFiling
+      description: A regulatory filing submitted to the SEC including 10-K, 10-Q, and 8-K filings
+    - name: OperationalMetrics
+      description: Operational performance metrics by business segment for a given period
+  actions:
+    - name: Get
+      description: Retrieve a single resource or report for a specific period
+    - name: List
+      description: Retrieve a paginated collection of resources
+  personas:
+    - name: Investor
+      description: Shareholder or potential investor analyzing Archrock financial performance
+    - name: Analyst
+      description: Financial or energy sector analyst evaluating operational metrics and fleet data
+    - name: Operator
+      description: Oil and gas operator using Archrock compression services
+  dimensions:
+    - name: Fleet Utilization
+      description: Efficiency of compression fleet deployment as measured by active vs. total horsepower
+    - name: Revenue Mix
+      description: Balance between contract operations and aftermarket services revenue streams
+    - name: Safety Performance
+      description: Safety incident rates and compliance metrics for compression operations

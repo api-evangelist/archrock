@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/api-evangelist/archrock/refs/heads/main/json-schema/archrock-investor-relations-api-operational-metrics-schema.json",
+  "example": {
+    "year": 42,
+    "quarter": 42,
+    "contractOperationsRevenue": 1.0,
+    "aftermarketServicesRevenue": 1.0,
+    "averageActiveHorsepower": 42,
+    "revenuePerHorsepower": 1.0,
+    "grossMarginContractOps": 1.0,
+    "grossMarginAftermarket": 1.0,
+    "safetyIncidentRate": 1.0,
+    "customerCount": 42
+  }
+}
