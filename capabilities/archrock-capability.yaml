@@ -1,0 +1,301 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Archrock Investor Relations API
+  description: API providing access to Archrock investor relations data including financial reports, compression fleet statistics,
+    SEC filings, and operational performance metrics.
+  tags:
+  - Archrock
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: archrock
+    baseUri: https://api.archrock.com/v1
+    description: Archrock Investor Relations API HTTP API.
+    authentication:
+      type: apikey
+      in: header
+      name: X-API-Key
+      value: '{{ARCHROCK_TOKEN}}'
+    resources:
+    - name: financials-quarterly
+      path: /financials/quarterly
+      operations:
+      - name: getquarterlyfinancials
+        method: GET
+        description: Get quarterly financial results
+        inputParameters:
+        - name: year
+          in: query
+          type: integer
+          description: Fiscal year
+        - name: quarter
+          in: query
+          type: integer
+          description: Fiscal quarter (1-4)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: fleet-statistics
+      path: /fleet/statistics
+      operations:
+      - name: getfleetstatistics
+        method: GET
+        description: Get compression fleet statistics
+        inputParameters:
+        - name: year
+          in: query
+          type: integer
+        - name: quarter
+          in: query
+          type: integer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: fleet-equipment
+      path: /fleet/equipment
+      operations:
+      - name: listequipment
+        method: GET
+        description: List compression equipment
+        inputParameters:
+        - name: status
+          in: query
+          type: string
+        - name: limit
+          in: query
+          type: integer
+        - name: offset
+          in: query
+          type: integer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: sec-filings
+      path: /sec-filings
+      operations:
+      - name: listsecfilings
+        method: GET
+        description: List SEC filings
+        inputParameters:
+        - name: type
+          in: query
+          type: string
+        - name: year
+          in: query
+          type: integer
+        - name: limit
+          in: query
+          type: integer
+        - name: offset
+          in: query
+          type: integer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: operations-metrics
+      path: /operations/metrics
+      operations:
+      - name: getoperationalmetrics
+        method: GET
+        description: Get operational performance metrics
+        inputParameters:
+        - name: year
+          in: query
+          type: integer
+        - name: quarter
+          in: query
+          type: integer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: archrock-rest
+    description: REST adapter for Archrock Investor Relations API.
+    resources:
+    - path: /financials/quarterly
+      name: getquarterlyfinancials
+      operations:
+      - method: GET
+        name: getquarterlyfinancials
+        description: Get quarterly financial results
+        call: archrock.getquarterlyfinancials
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /fleet/statistics
+      name: getfleetstatistics
+      operations:
+      - method: GET
+        name: getfleetstatistics
+        description: Get compression fleet statistics
+        call: archrock.getfleetstatistics
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /fleet/equipment
+      name: listequipment
+      operations:
+      - method: GET
+        name: listequipment
+        description: List compression equipment
+        call: archrock.listequipment
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /sec-filings
+      name: listsecfilings
+      operations:
+      - method: GET
+        name: listsecfilings
+        description: List SEC filings
+        call: archrock.listsecfilings
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /operations/metrics
+      name: getoperationalmetrics
+      operations:
+      - method: GET
+        name: getoperationalmetrics
+        description: Get operational performance metrics
+        call: archrock.getoperationalmetrics
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: archrock-mcp
+    transport: http
+    description: MCP adapter for Archrock Investor Relations API for AI agent use.
+    tools:
+    - name: getquarterlyfinancials
+      description: Get quarterly financial results
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: archrock.getquarterlyfinancials
+      with:
+        year: tools.year
+        quarter: tools.quarter
+      inputParameters:
+      - name: year
+        type: integer
+        description: Fiscal year
+      - name: quarter
+        type: integer
+        description: Fiscal quarter (1-4)
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getfleetstatistics
+      description: Get compression fleet statistics
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: archrock.getfleetstatistics
+      with:
+        year: tools.year
+        quarter: tools.quarter
+      inputParameters:
+      - name: year
+        type: integer
+        description: year
+      - name: quarter
+        type: integer
+        description: quarter
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listequipment
+      description: List compression equipment
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: archrock.listequipment
+      with:
+        status: tools.status
+        limit: tools.limit
+        offset: tools.offset
+      inputParameters:
+      - name: status
+        type: string
+        description: status
+      - name: limit
+        type: integer
+        description: limit
+      - name: offset
+        type: integer
+        description: offset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listsecfilings
+      description: List SEC filings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: archrock.listsecfilings
+      with:
+        type: tools.type
+        year: tools.year
+        limit: tools.limit
+        offset: tools.offset
+      inputParameters:
+      - name: type
+        type: string
+        description: type
+      - name: year
+        type: integer
+        description: year
+      - name: limit
+        type: integer
+        description: limit
+      - name: offset
+        type: integer
+        description: offset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getoperationalmetrics
+      description: Get operational performance metrics
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: archrock.getoperationalmetrics
+      with:
+        year: tools.year
+        quarter: tools.quarter
+      inputParameters:
+      - name: year
+        type: integer
+        description: year
+      - name: quarter
+        type: integer
+        description: quarter
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    ARCHROCK_TOKEN: ARCHROCK_TOKEN
