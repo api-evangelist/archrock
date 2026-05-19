@@ -31,6 +31,8 @@ apis:
   - type: OpenAPI
     url: https://raw.githubusercontent.com/api-evangelist/archrock/refs/heads/main/openapi/archrock-investor-relations-api.yaml
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/archrock
 - type: Portal
   url: https://www.archrock.com/
 - type: Documentation

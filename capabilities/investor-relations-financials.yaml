@@ -1,0 +1,87 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Archrock Investor Relations API — Financials
+  description: 'Archrock Investor Relations API — Financials. 1 operations. Lead operation: Get quarterly financial results.
+    Self-contained Naftiko capability covering one Archrock business surface.'
+  tags:
+  - Archrock
+  - Financials
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ARCHROCK_API_KEY: ARCHROCK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: investor-relations-financials
+    baseUri: https://api.archrock.com/v1
+    description: Archrock Investor Relations API — Financials business capability. Self-contained, no shared references.
+    resources:
+    - name: financials-quarterly
+      path: /financials/quarterly
+      operations:
+      - name: getquarterlyfinancials
+        method: GET
+        description: Get quarterly financial results
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: year
+          in: query
+          type: integer
+          description: Fiscal year
+        - name: quarter
+          in: query
+          type: integer
+          description: Fiscal quarter (1-4)
+    authentication:
+      type: apikey
+      key: X-API-Key
+      value: '{{env.ARCHROCK_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: investor-relations-financials-rest
+    port: 8080
+    description: REST adapter for Archrock Investor Relations API — Financials. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/financials/quarterly
+      name: financials-quarterly
+      description: REST surface for financials-quarterly.
+      operations:
+      - method: GET
+        name: getquarterlyfinancials
+        description: Get quarterly financial results
+        call: investor-relations-financials.getquarterlyfinancials
+        with:
+          year: rest.year
+          quarter: rest.quarter
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: investor-relations-financials-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Archrock Investor Relations API — Financials. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: get-quarterly-financial-results
+      description: Get quarterly financial results
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: investor-relations-financials.getquarterlyfinancials
+      with:
+        year: tools.year
+        quarter: tools.quarter
+      outputParameters:
+      - type: object
+        mapping: $.

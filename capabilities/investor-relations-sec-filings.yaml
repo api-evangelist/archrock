@@ -1,0 +1,95 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Archrock Investor Relations API — SEC Filings
+  description: 'Archrock Investor Relations API — SEC Filings. 1 operations. Lead operation: List SEC filings. Self-contained
+    Naftiko capability covering one Archrock business surface.'
+  tags:
+  - Archrock
+  - SEC Filings
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ARCHROCK_API_KEY: ARCHROCK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: investor-relations-sec-filings
+    baseUri: https://api.archrock.com/v1
+    description: Archrock Investor Relations API — SEC Filings business capability. Self-contained, no shared references.
+    resources:
+    - name: sec-filings
+      path: /sec-filings
+      operations:
+      - name: listsecfilings
+        method: GET
+        description: List SEC filings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: type
+          in: query
+          type: string
+        - name: year
+          in: query
+          type: integer
+        - name: limit
+          in: query
+          type: integer
+        - name: offset
+          in: query
+          type: integer
+    authentication:
+      type: apikey
+      key: X-API-Key
+      value: '{{env.ARCHROCK_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: investor-relations-sec-filings-rest
+    port: 8080
+    description: REST adapter for Archrock Investor Relations API — SEC Filings. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/sec-filings
+      name: sec-filings
+      description: REST surface for sec-filings.
+      operations:
+      - method: GET
+        name: listsecfilings
+        description: List SEC filings
+        call: investor-relations-sec-filings.listsecfilings
+        with:
+          type: rest.type
+          year: rest.year
+          limit: rest.limit
+          offset: rest.offset
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: investor-relations-sec-filings-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Archrock Investor Relations API — SEC Filings. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: list-sec-filings
+      description: List SEC filings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: investor-relations-sec-filings.listsecfilings
+      with:
+        type: tools.type
+        year: tools.year
+        limit: tools.limit
+        offset: tools.offset
+      outputParameters:
+      - type: object
+        mapping: $.

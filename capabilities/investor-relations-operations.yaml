@@ -1,0 +1,85 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Archrock Investor Relations API — Operations
+  description: 'Archrock Investor Relations API — Operations. 1 operations. Lead operation: Get operational performance metrics.
+    Self-contained Naftiko capability covering one Archrock business surface.'
+  tags:
+  - Archrock
+  - Operations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ARCHROCK_API_KEY: ARCHROCK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: investor-relations-operations
+    baseUri: https://api.archrock.com/v1
+    description: Archrock Investor Relations API — Operations business capability. Self-contained, no shared references.
+    resources:
+    - name: operations-metrics
+      path: /operations/metrics
+      operations:
+      - name: getoperationalmetrics
+        method: GET
+        description: Get operational performance metrics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: year
+          in: query
+          type: integer
+        - name: quarter
+          in: query
+          type: integer
+    authentication:
+      type: apikey
+      key: X-API-Key
+      value: '{{env.ARCHROCK_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: investor-relations-operations-rest
+    port: 8080
+    description: REST adapter for Archrock Investor Relations API — Operations. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/operations/metrics
+      name: operations-metrics
+      description: REST surface for operations-metrics.
+      operations:
+      - method: GET
+        name: getoperationalmetrics
+        description: Get operational performance metrics
+        call: investor-relations-operations.getoperationalmetrics
+        with:
+          year: rest.year
+          quarter: rest.quarter
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: investor-relations-operations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Archrock Investor Relations API — Operations. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: get-operational-performance-metrics
+      description: Get operational performance metrics
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: investor-relations-operations.getoperationalmetrics
+      with:
+        year: tools.year
+        quarter: tools.quarter
+      outputParameters:
+      - type: object
+        mapping: $.
