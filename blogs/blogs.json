@@ -2,13 +2,13 @@
   "repo": "archrock",
   "feeds": [
     {
-      "source": "https://www.archrock.com/news",
-      "feed_url": "",
+      "source": "https://www.archrock.com/investor-relations",
+      "feed_url": "https://www.archrock.com/investor-relations",
       "title": "",
       "saved": 0,
-      "error": "no_feed"
+      "method": "none"
     }
   ],
-  "fetched": "2026-05-17T20:48:52Z",
+  "fetched": "2026-06-01T23:35:02Z",
   "post_count": 0
 }
