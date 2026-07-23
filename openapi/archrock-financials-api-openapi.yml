@@ -1,0 +1,81 @@
+openapi: 3.0.3
+info:
+  title: Archrock Investor Relations Financials API
+  description: API providing access to Archrock investor relations data including financial reports, compression fleet statistics, SEC filings, and operational performance metrics.
+  version: 1.0.0
+  contact:
+    name: Archrock Investor Relations
+    url: https://www.archrock.com/investor-relations
+servers:
+- url: https://api.archrock.com/v1
+  description: Production
+security:
+- ApiKeyAuth: []
+tags:
+- name: Financials
+paths:
+  /financials/quarterly:
+    get:
+      summary: Get quarterly financial results
+      operationId: getQuarterlyFinancials
+      tags:
+      - Financials
+      parameters:
+      - name: year
+        in: query
+        description: Fiscal year
+        schema:
+          type: integer
+      - name: quarter
+        in: query
+        description: Fiscal quarter (1-4)
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 4
+      responses:
+        '200':
+          description: Quarterly financial results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuarterlyFinancials'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    QuarterlyFinancials:
+      type: object
+      properties:
+        year:
+          type: integer
+        quarter:
+          type: integer
+        revenue:
+          type: number
+          description: Total revenue in millions USD
+        grossMargin:
+          type: number
+          description: Gross margin percentage
+        ebitda:
+          type: number
+          description: Adjusted EBITDA in millions USD
+        netIncome:
+          type: number
+          description: Net income in millions USD
+        earningsPerShare:
+          type: number
+        dividendPerShare:
+          type: number
+        operatingCashFlow:
+          type: number
+        capitalExpenditures:
+          type: number
+        reportDate:
+          type: string
+          format: date
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
