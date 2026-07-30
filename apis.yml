@@ -2,7 +2,20 @@ aid: archrock
 name: Archrock
 description: 'Archrock (NYSE: AROC) is the premier provider of natural gas compression services and equipment to customers in the oil and natural gas industry throughout the United States. The company operates a large fleet of compression equipment and provides contract operations and aftermarket services.'
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/archrock.png
 tags:
   - Natural Gas
   - Compression Services
@@ -15,21 +28,50 @@ created: '2026-03-23'
 modified: '2026-04-19'
 specificationVersion: '0.19'
 apis:
-  - aid: archrock:archrock-investor-relations-api
-    name: Archrock Investor Relations API
-    description: Archrock provides investor relations data including SEC filings, financial reports, compression fleet statistics, and operational performance metrics for shareholders and analysts.
-    humanURL: https://www.archrock.com/investor-relations
-    tags:
-    - Investor Relations
-    - SEC Filings
-    - Financial Data
-    - Compression Services
-    - Natural Gas
-    properties:
-    - type: Documentation
-      url: https://www.archrock.com/investor-relations
-    - type: OpenAPI
-      url: https://raw.githubusercontent.com/api-evangelist/archrock/refs/heads/main/openapi/archrock-investor-relations-api.yaml
+- aid: archrock:archrock-financials-api
+  name: Archrock Financials API
+  description: The Financials API from Archrock — 1 operation(s) for financials.
+  humanURL: https://www.archrock.com/investor-relations
+  tags:
+  - Financials
+  properties:
+  - type: OpenAPI
+    url: openapi/archrock-financials-api-openapi.yml
+  - type: Documentation
+    url: https://www.archrock.com/investor-relations
+- aid: archrock:archrock-fleet-api
+  name: Archrock Fleet API
+  description: The Fleet API from Archrock — 2 operation(s) for fleet.
+  humanURL: https://www.archrock.com/investor-relations
+  tags:
+  - Fleet
+  properties:
+  - type: OpenAPI
+    url: openapi/archrock-fleet-api-openapi.yml
+  - type: Documentation
+    url: https://www.archrock.com/investor-relations
+- aid: archrock:archrock-operations-api
+  name: Archrock Operations API
+  description: The Operations API from Archrock — 1 operation(s) for operations.
+  humanURL: https://www.archrock.com/investor-relations
+  tags:
+  - Operations
+  properties:
+  - type: OpenAPI
+    url: openapi/archrock-operations-api-openapi.yml
+  - type: Documentation
+    url: https://www.archrock.com/investor-relations
+- aid: archrock:archrock-sec-filings-api
+  name: Archrock SEC Filings API
+  description: The SEC Filings API from Archrock — 1 operation(s) for sec filings.
+  humanURL: https://www.archrock.com/investor-relations
+  tags:
+  - SEC Filings
+  properties:
+  - type: OpenAPI
+    url: openapi/archrock-sec-filings-api-openapi.yml
+  - type: Documentation
+    url: https://www.archrock.com/investor-relations
 common:
   - type: AgenticAccess
     url: agentic-access/archrock-agentic-access.yml
