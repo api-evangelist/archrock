@@ -1,0 +1,20 @@
+{
+  "provider": "archrock",
+  "sources": [
+    "archrock-financials-api-openapi.yml",
+    "archrock-fleet-api-openapi.yml",
+    "archrock-operations-api-openapi.yml",
+    "archrock-sec-filings-api-openapi.yml"
+  ],
+  "outputs": [
+    "archrock-financials-api-openapi.yml",
+    "archrock-fleet-api-openapi.yml",
+    "archrock-operations-api-openapi.yml",
+    "archrock-sec-filings-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
