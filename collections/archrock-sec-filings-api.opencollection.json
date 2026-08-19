@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Archrock Investor Relations Financials SEC Filings API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SEC Filings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List SEC filings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.archrock.com/v1/sec-filings",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List SEC filings"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
