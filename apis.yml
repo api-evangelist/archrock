@@ -19,6 +19,13 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/archrock.p
 tags:
   - Natural Gas
   - Compression Services
+  - Oil and Gas
+  - Energy
+  - Industrial
+  - 'NYSE: AROC'
+tags_raw:
+  - Natural Gas
+  - Compression Services
   - Oil And Gas
   - Energy
   - Industrial
@@ -54,7 +61,8 @@ apis:
   name: Archrock Operations API
   description: The Operations API from Archrock — 1 operation(s) for operations.
   humanURL: https://www.archrock.com/investor-relations
-  tags:
+  tags: []
+  tags_raw:
   - Operations
   properties:
   - type: OpenAPI
