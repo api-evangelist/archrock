@@ -1,0 +1,25 @@
+slug: archrock
+provider: Archrock
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Manufacturing & Industrial
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Financials
+  spec_file: archrock-financials-api-openapi.yml
+  capability_id: BC-240.20
+  capability_id_l1: BC-240
+  capability_name: Earnings Cycle Management
+  confidence: 0.75
+  evidence: GET /financials/quarterly getQuarterlyFinancials "Get quarterly financial results"; "API providing
+    access to Archrock investor relations data including financial reports"
+  reason: Publishing quarterly financial results as part of an investor relations data feed maps to the
+    earnings cycle of investor relations rather than internal accounting.

@@ -92,6 +92,9 @@ apis:
   - type: Documentation
     url: https://www.archrock.com/investor-relations
 common:
+  - type: CapabilityMap
+    url: capabilities/archrock-capability-edges.yml
+    name: Archrock Business Capability Map
   - type: AgenticAccess
     url: agentic-access/archrock-agentic-access.yml
   - type: DomainSecurity
