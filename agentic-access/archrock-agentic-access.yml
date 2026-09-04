@@ -1,6 +1,12 @@
 generated: '2026-07-15'
 method: generated
 source: openapi/archrock-investor-relations-api.yaml
+caveat: >-
+  SCAFFOLD-DERIVED, NOT PUBLISHED. The five operations classified below come from
+  openapi/archrock-investor-relations-api.yaml, a 2026-05-04 bulk-scaffold OpenAPI whose
+  servers[] host (api.archrock.com) does not resolve in DNS. Re-probed 2026-09-04: Archrock
+  operates no API, so these execution contracts describe a surface that does not exist.
+caveat_checked: '2026-09-04'
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.

@@ -4,90 +4,33 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Archrock
 providerId: archrock
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-04'
-tags:
-  - Natural Gas
-  - Compression Services
-  - Oil And Gas
-  - Energy
-  - Industrial
-  - 'NYSE: AROC'
-  - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the Archrock API surface. Captures per-tier quotas,
-  burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to be replaced
-  with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
-responseCodes:
-  throttled: 429
-  quotaExceeded: 429
-  serviceUnavailable: 503
-limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - Archrock Investor Relations API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - Archrock Investor Relations API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - Archrock Investor Relations API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - Archrock Investor Relations API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - Archrock Investor Relations API
-policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+modified: '2026-09-04'
+generated: '2026-09-04'
+method: searched
+source: https://www.archrock.com/
+limit_count: 0
+description: >-
+  Archrock documents no API rate limits, because Archrock publishes no API. No throttling
+  policy, no quota, no RateLimit-* or X-RateLimit-* response headers and no 429 semantics are
+  documented anywhere on archrock.com. limit_count is 0 as a measured fact.
+headers: {}
+responseCodes: {}
+limits: []
+policies: []
+note: >-
+  CORRECTED 2026-09-04. This file previously carried five fabricated limits (10/min and
+  1,000/month free, 100/min and 100,000/month professional, 1,000/min enterprise) plus a full
+  X-RateLimit-* header contract and four backoff policies, all written by the 2026-05-04 bulk
+  scaffold sweep and self-labelled in its own description as "scaffold values". None of it was
+  published by Archrock. It fed the scored rate_limits[].limit_count field and the
+  rate_limit_signal agent-readiness dimension. Replaced with the measured zero.
+evidence:
+- url: https://www.archrock.com/
+  status: 200
+  finding: No developer documentation of any kind; nothing to rate-limit.
+- url: https://api.archrock.com/
+  status: 0
+  finding: Host does not resolve in DNS (NXDOMAIN); no live response headers observable.
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com

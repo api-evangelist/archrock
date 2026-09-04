@@ -1,0 +1,41 @@
+generated: '2026-09-04'
+method: searched
+source: >-
+  Unauthenticated registry searches of npm, PyPI, RubyGems, crates.io and NuGet, plus a review
+  of the complete archrock.com sitemap and a GitHub organization lookup.
+package_count: 0
+description: >-
+  Archrock publishes no client libraries or SDKs. Every public package registry returns zero
+  results for "archrock", there is no github.com/archrock organization, and the corporate site
+  carries no developer or downloads section. This is a recorded absence, not an unchecked gap.
+packages: []
+note: >-
+  No type SDKs or Packages pointer is emitted in apis.yml, because there is nothing to point at.
+registries_searched:
+- registry: npm
+  url: https://registry.npmjs.org/-/v1/search?text=archrock
+  status: 200
+  results: 0
+- registry: pypi
+  url: https://pypi.org/pypi/archrock/json
+  status: 404
+  results: 0
+- registry: rubygems
+  url: https://rubygems.org/api/v1/search.json?query=archrock
+  status: 200
+  results: 0
+- registry: crates.io
+  url: https://crates.io/api/v1/crates?q=archrock
+  status: 200
+  results: 0
+- registry: nuget
+  url: https://azuresearch-usnc.nuget.org/query?q=archrock
+  status: 200
+  results: 0
+- registry: github
+  url: https://api.github.com/orgs/archrock
+  status: 404
+  results: 0
+  finding: >-
+    No Archrock GitHub organization. The github.com/archrock account is an unrelated personal
+    user, not the company.

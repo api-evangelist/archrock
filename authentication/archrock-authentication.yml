@@ -1,6 +1,14 @@
 generated: '2026-07-11'
 method: derived
 source: openapi/archrock-investor-relations-api.yaml
+caveat: >-
+  SCAFFOLD-DERIVED, NOT PUBLISHED. The X-API-Key scheme below was derived from
+  openapi/archrock-investor-relations-api.yaml, which is a 2026-05-04 bulk-scaffold OpenAPI
+  whose servers[] block names https://api.archrock.com/v1 — a host with NO DNS record. Archrock
+  publishes no developer portal, no authentication page and no API. Re-probed 2026-09-04: this
+  scheme is a property of our own scaffold, not an Archrock-documented auth model, and should
+  not be read as evidence that Archrock documents authentication.
+caveat_checked: '2026-09-04'
 summary:
   types:
   - apiKey

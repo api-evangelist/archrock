@@ -1,0 +1,116 @@
+generated: '2026-09-04'
+method: probed
+source: >-
+  Live unauthenticated GET of the named RFC 8615 discovery paths on every host this record
+  knows: the registrable domain and www, the investor-relations host, and the api.archrock.com
+  host named by the servers[] block of the OpenAPI scaffolds in openapi/.
+note: >-
+  RECORDED ABSENCE. Archrock serves none of these documents. Every path on archrock.com and
+  www.archrock.com returns a real HTTP 404 with the site's HTML error page. Every path on
+  investors.archrock.com (a Q4 Inc investor-relations tenant) returns a 200 carrying an
+  11-byte "Invalid key" catch-all body — a soft-404, NOT a document; it is recorded here as
+  a miss so it is never mistaken for a served surface. api.archrock.com does not resolve in
+  DNS at all, so no request could be made. No type WellKnown or SecurityTxt pointer is
+  emitted from this probe, because no path returned a real document.
+hosts:
+- host: www.archrock.com
+  note: Primary marketing site (Netlify).
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+- host: archrock.com
+  note: Registrable domain; serves the same 404 page as www.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+- host: investors.archrock.com
+  note: >-
+    Q4 Inc investor-relations tenant behind a Cloudflare challenge. Answers 200 with an
+    11-byte "Invalid key" body on EVERY /.well-known/* path — a soft-404 catch-all, treated
+    as a miss on all seven paths.
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    soft_404: true
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 200
+    soft_404: true
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    soft_404: true
+    file: null
+  - path: /.well-known/api-catalog
+    status: 200
+    soft_404: true
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    soft_404: true
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 200
+    soft_404: true
+    file: null
+  - path: /.well-known/agent.json
+    status: 200
+    soft_404: true
+    file: null
+- host: api.archrock.com
+  note: >-
+    Host named in servers[] of every OpenAPI in openapi/. It has NO DNS record — no A, AAAA
+    or CNAME — so it is unreachable and cannot be probed. This is the strongest evidence in
+    the repo that those specs are pipeline scaffolds rather than harvested contracts.
+  dns_resolves: false
+  documents:
+  - path: /.well-known/security.txt
+    status: 0
+    error: dns-nxdomain
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 0
+    error: dns-nxdomain
+    file: null
+  - path: /.well-known/agent.json
+    status: 0
+    error: dns-nxdomain
+    file: null

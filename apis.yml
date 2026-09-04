@@ -44,55 +44,57 @@ tags_raw:
   - 'NYSE: AROC'
 url: https://raw.githubusercontent.com/api-evangelist/archrock/refs/heads/main/apis.yml
 created: '2026-03-23'
-modified: '2026-04-19'
+modified: '2026-09-04'
 specificationVersion: '0.23'
 apis:
 - aid: archrock:archrock-financials-api
   name: Archrock Financials API
   description: The Financials API from Archrock — 1 operation(s) for financials.
-  humanURL: https://www.archrock.com/investor-relations
+  humanURL: https://www.archrock.com/aroc-investor-relations/
   tags:
   - Financials
   properties:
   - type: OpenAPI
     url: openapi/archrock-financials-api-openapi.yml
-  - type: Documentation
-    url: https://www.archrock.com/investor-relations
+  - type: InvestorRelations
+    url: https://www.archrock.com/aroc-investor-relations/
 - aid: archrock:archrock-fleet-api
   name: Archrock Fleet API
   description: The Fleet API from Archrock — 2 operation(s) for fleet.
-  humanURL: https://www.archrock.com/investor-relations
+  humanURL: https://www.archrock.com/aroc-investor-relations/
   tags:
   - Fleet
   properties:
   - type: OpenAPI
     url: openapi/archrock-fleet-api-openapi.yml
-  - type: Documentation
-    url: https://www.archrock.com/investor-relations
+  - type: InvestorRelations
+    url: https://www.archrock.com/aroc-investor-relations/
 - aid: archrock:archrock-operations-api
   name: Archrock Operations API
   description: The Operations API from Archrock — 1 operation(s) for operations.
-  humanURL: https://www.archrock.com/investor-relations
+  humanURL: https://www.archrock.com/aroc-investor-relations/
   tags: []
   tags_raw:
   - Operations
   properties:
   - type: OpenAPI
     url: openapi/archrock-operations-api-openapi.yml
-  - type: Documentation
-    url: https://www.archrock.com/investor-relations
+  - type: InvestorRelations
+    url: https://www.archrock.com/aroc-investor-relations/
 - aid: archrock:archrock-sec-filings-api
   name: Archrock SEC Filings API
   description: The SEC Filings API from Archrock — 1 operation(s) for sec filings.
-  humanURL: https://www.archrock.com/investor-relations
+  humanURL: https://www.archrock.com/aroc-investor-relations/
   tags:
   - SEC Filings
   properties:
   - type: OpenAPI
     url: openapi/archrock-sec-filings-api-openapi.yml
-  - type: Documentation
-    url: https://www.archrock.com/investor-relations
+  - type: InvestorRelations
+    url: https://www.archrock.com/aroc-investor-relations/
 common:
+  - type: Website
+    url: https://www.archrock.com/
   - type: CapabilityMap
     url: capabilities/archrock-capability-edges.yml
     name: Archrock Business Capability Map
@@ -106,10 +108,17 @@ common:
     url: https://www.linkedin.com/company/archrock
   - type: Portal
     url: https://www.archrock.com/
-  - type: Documentation
-    url: https://www.archrock.com/investor-relations
+  - type: InvestorRelations
+    url: https://www.archrock.com/aroc-investor-relations/
+    name: Archrock Investor Relations (AROC)
   - type: Blog
-    url: https://www.archrock.com/news
+    url: https://www.archrock.com/news-media/
+  - type: TermsOfService
+    url: https://www.archrock.com/terms-of-use/
+  - type: PrivacyPolicy
+    url: https://www.archrock.com/privacy/
+  - type: Support
+    url: https://www.archrock.com/contact/
   - type: Features
     data:
     - name: Natural Gas Compression
@@ -149,3 +158,28 @@ common:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-09-04'
+  status: minimal
+  artifacts_added: 2
+  pass: local-v3
+x-coverage:
+  state: none
+  reason: not-a-software-company
+  detail: >-
+    Archrock (NYSE: AROC) sells natural gas compression as a physical service — contract
+    compression, field and shop aftermarket work, and compressor parts — and its complete
+    42-page sitemap contains no developer, API, docs, signup or pricing page; the
+    api.archrock.com host named by the OpenAPI files in this repo has no DNS record at all.
+  evidence:
+    - url: https://www.archrock.com/sitemap.xml
+      status: 200
+    - url: https://api.archrock.com/openapi.json
+      status: 0
+    - url: https://www.archrock.com/.well-known/api-catalog
+      status: 404
+    - url: https://www.archrock.com/llms.txt
+      status: 404
+    - url: https://api.github.com/orgs/archrock
+      status: 404
+  checked: '2026-09-04'

@@ -15,6 +15,12 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "archrock-financials-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "archrock-fleet-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "archrock-operations-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "archrock-sec-filings-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }
