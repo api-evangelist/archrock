@@ -52,6 +52,8 @@ apis:
   description: The Financials API from Archrock — 1 operation(s) for financials.
   humanURL: https://www.archrock.com/aroc-investor-relations/
   tags:
+  - Financial
+  tags_raw:
   - Financials
   properties:
   - type: OpenAPI
