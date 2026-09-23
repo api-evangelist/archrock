@@ -1,7 +1,9 @@
 ---
 title: Archrock Surges on Record Earnings, Eyes LNG and AI Growth ...
 url: https://briefglance.com/articles/archrock-surges-on-record-earnings-eyes-lng-and-ai-growth-boom
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Archrock" press release artificial intelligence'
 position: 5
 source: serpapi-google

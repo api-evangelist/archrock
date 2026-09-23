@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Archrock Investor Relations Financials Fleet API
+  title: Archrock Investor Relations Fleet API
   description: API providing access to Archrock investor relations data including financial reports, compression fleet statistics, SEC filings, and operational performance metrics.
   version: 1.0.0
   contact:
@@ -70,6 +70,30 @@ paths:
                 $ref: '#/components/schemas/EquipmentList'
 components:
   schemas:
+    FleetStatistics:
+      type: object
+      properties:
+        year:
+          type: integer
+        quarter:
+          type: integer
+        totalHorsepower:
+          type: integer
+          description: Total fleet horsepower
+        activeHorsepower:
+          type: integer
+          description: Active fleet horsepower
+        utilizationRate:
+          type: number
+          description: Fleet utilization rate as percentage
+        averageHorsepowerPerUnit:
+          type: number
+        totalUnits:
+          type: integer
+        newUnitDeployments:
+          type: integer
+        unitRetirements:
+          type: integer
     Equipment:
       type: object
       properties:
@@ -109,30 +133,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Equipment'
-    FleetStatistics:
-      type: object
-      properties:
-        year:
-          type: integer
-        quarter:
-          type: integer
-        totalHorsepower:
-          type: integer
-          description: Total fleet horsepower
-        activeHorsepower:
-          type: integer
-          description: Active fleet horsepower
-        utilizationRate:
-          type: number
-          description: Fleet utilization rate as percentage
-        averageHorsepowerPerUnit:
-          type: number
-        totalUnits:
-          type: integer
-        newUnitDeployments:
-          type: integer
-        unitRetirements:
-          type: integer
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Archrock Investor Relations Financials SEC Filings API
+  title: Archrock Investor Relations SEC Filings API
   description: API providing access to Archrock investor relations data including financial reports, compression fleet statistics, SEC filings, and operational performance metrics.
   version: 1.0.0
   contact:
@@ -54,6 +54,19 @@ paths:
                 $ref: '#/components/schemas/SecFilingList'
 components:
   schemas:
+    SecFilingList:
+      type: object
+      properties:
+        total:
+          type: integer
+        offset:
+          type: integer
+        limit:
+          type: integer
+        filings:
+          type: array
+          items:
+            $ref: '#/components/schemas/SecFiling'
     SecFiling:
       type: object
       properties:
@@ -78,19 +91,6 @@ components:
           type: string
         documentUrl:
           type: string
-    SecFilingList:
-      type: object
-      properties:
-        total:
-          type: integer
-        offset:
-          type: integer
-        limit:
-          type: integer
-        filings:
-          type: array
-          items:
-            $ref: '#/components/schemas/SecFiling'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

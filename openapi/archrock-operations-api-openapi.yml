@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Archrock Investor Relations Financials Operations API
+  title: Archrock Investor Relations Operations API
   description: API providing access to Archrock investor relations data including financial reports, compression fleet statistics, SEC filings, and operational performance metrics.
   version: 1.0.0
   contact:
