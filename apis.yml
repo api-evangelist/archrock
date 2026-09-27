@@ -14,19 +14,18 @@ deliveryModel:
   generated: '2026-08-28'
   method: derived
 accessModel:
-  pricing: freemium
-  onboarding: self-serve
+  pricing: unknown
+  onboarding: unknown
   trial: false
-  try_now: true
+  try_now: false
   public: false
-  label: Freemium · Self-serve signup
-  confidence: medium
+  label: No public API program
+  confidence: high
   source:
   - plans
-  - authentication
-  - security
-  generated: '2026-09-03'
-  method: derived
+  - https://www.archrock.com/sitemap.xml
+  generated: '2026-09-26'
+  method: researched
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/archrock.png
 tags:
   - Natural Gas
@@ -47,65 +46,39 @@ created: '2026-03-23'
 modified: '2026-09-04'
 specificationVersion: '0.23'
 apis:
-- aid: archrock:archrock-financials-api
-  name: Archrock Financials API
-  description: The Financials API from Archrock — 1 operation(s) for financials.
-  humanURL: https://www.archrock.com/aroc-investor-relations/
+- aid: archrock:sec-edgar-filings
+  name: SEC EDGAR Filings (Archrock, Inc., CIK 1389050)
+  description: >-
+    Machine-readable filing data for Archrock is available from the U.S. Securities and
+    Exchange Commission, not from the company. The SEC EDGAR submissions API returns the full
+    filing history for CIK 0001389050 (Archrock, Inc., NYSE: AROC; formerly Exterran Holdings)
+    as JSON. This is a third-party government API listed here because it is the only real
+    programmatic access to this company's data. Archrock itself publishes no API.
+  humanURL: https://www.sec.gov/search-filings/edgar-application-programming-interfaces
   tags:
-  - Financial
-  tags_raw:
-  - Financials
+  - Filings
+  - SEC EDGAR
+  - Third Party
   properties:
-  - type: OpenAPI
-    url: openapi/archrock-financials-api-openapi.yml
-  - type: InvestorRelations
-    url: https://www.archrock.com/aroc-investor-relations/
-- aid: archrock:archrock-fleet-api
-  name: Archrock Fleet API
-  description: The Fleet API from Archrock — 2 operation(s) for fleet.
-  humanURL: https://www.archrock.com/aroc-investor-relations/
-  tags:
-  - Fleet
-  properties:
-  - type: OpenAPI
-    url: openapi/archrock-fleet-api-openapi.yml
-  - type: InvestorRelations
-    url: https://www.archrock.com/aroc-investor-relations/
-- aid: archrock:archrock-operations-api
-  name: Archrock Operations API
-  description: The Operations API from Archrock — 1 operation(s) for operations.
-  humanURL: https://www.archrock.com/aroc-investor-relations/
-  tags: []
-  tags_raw:
-  - Operations
-  properties:
-  - type: OpenAPI
-    url: openapi/archrock-operations-api-openapi.yml
-  - type: InvestorRelations
-    url: https://www.archrock.com/aroc-investor-relations/
-- aid: archrock:archrock-sec-filings-api
-  name: Archrock SEC Filings API
-  description: The SEC Filings API from Archrock — 1 operation(s) for sec filings.
-  humanURL: https://www.archrock.com/aroc-investor-relations/
-  tags:
-  - SEC Filings
-  properties:
-  - type: OpenAPI
-    url: openapi/archrock-sec-filings-api-openapi.yml
-  - type: InvestorRelations
-    url: https://www.archrock.com/aroc-investor-relations/
+  - type: Documentation
+    url: https://www.sec.gov/search-filings/edgar-application-programming-interfaces
+  - type: APIReference
+    url: https://data.sec.gov/submissions/CIK0001389050.json
+  x-evidence:
+    verified: '2026-09-26'
+    method: fetched documentation and called the endpoint
+    documentation: The SEC's EDGAR APIs page (HTTP 200) documents RESTful JSON APIs on data.sec.gov,
+      including https://data.sec.gov/submissions/CIK##########.json. No API key; a declared
+      User-Agent is required.
+    endpoint_check: GET https://data.sec.gov/submissions/CIK0001389050.json returned HTTP 200
+      application/json naming "Archrock, Inc.", ticker AROC on NYSE, former name EXTERRAN HOLDINGS
+      INC., latest filing an 8-K dated 2026-08-11. The CIK comes from sec.gov/files/company_tickers.json
+      (AROC -> 1389050).
 common:
   - type: Website
     url: https://www.archrock.com/
-  - type: CapabilityMap
-    url: capabilities/archrock-capability-edges.yml
-    name: Archrock Business Capability Map
-  - type: AgenticAccess
-    url: agentic-access/archrock-agentic-access.yml
   - type: DomainSecurity
     url: security/archrock-domain-security.yml
-  - type: Authentication
-    url: authentication/archrock-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/archrock
   - type: Portal
@@ -151,12 +124,6 @@ common:
       description: Financial and operational data integrated with Bloomberg terminal.
     - name: Refinitiv
       description: Production and financial data available through Refinitiv data services.
-  - type: SpectralRules
-    url: https://raw.githubusercontent.com/api-evangelist/archrock/refs/heads/main/rules/archrock-spectral-rules.yml
-  - type: Vocabulary
-    url: https://raw.githubusercontent.com/api-evangelist/archrock/refs/heads/main/vocabulary/archrock-vocabulary.yaml
-  - type: JSONLD
-    url: https://raw.githubusercontent.com/api-evangelist/archrock/refs/heads/main/json-ld/archrock-investor-relations-api-context.jsonld
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
@@ -185,3 +152,18 @@ x-coverage:
     - url: https://api.github.com/orgs/archrock
       status: 404
   checked: '2026-09-04'
+x-api-posture: no-product-api
+x-api-posture-basis: observed
+x-fabrication:
+  found: '2026-09-26'
+  issue: https://github.com/api-evangelist/roadmap/issues/725
+  finding: >-
+    The four APIs this record listed (Financials, Fleet, Operations, SEC Filings) were split from
+    openapi/archrock-investor-relations-api.yaml, an OpenAPI written by the 2026-05-04 API Evangelist
+    bulk scaffold pass, not published by Archrock. Its only server, https://api.archrock.com/v1,
+    has no DNS record (NXDOMAIN, re-checked 2026-09-26), Archrock's 41-URL sitemap has no developer,
+    API or docs page, and the scaffold's own derived artifacts already said "SCAFFOLD-DERIVED, NOT
+    PUBLISHED". The spec and everything derived from it (collections, examples, JSON Schema, JSON
+    Structure, JSON-LD, Spectral rules, vocabulary, capability edges, agentic-access, authentication)
+    were moved to _fabricated/ and the apis entries replaced with the SEC EDGAR submissions API,
+    labelled as third-party.
