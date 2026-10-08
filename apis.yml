@@ -75,6 +75,12 @@ apis:
       INC., latest filing an 8-K dated 2026-08-11. The CIK comes from sec.gov/files/company_tickers.json
       (AROC -> 1389050).
 common:
+  - type: Plans
+    url: plans/archrock-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/archrock-rate-limits.yml
+  - type: FinOps
+    url: finops/archrock-finops.yml
   - type: Website
     url: https://www.archrock.com/
   - type: DomainSecurity
