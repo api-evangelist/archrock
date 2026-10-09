@@ -1,0 +1,14 @@
+{
+  "$schema": "https://raw.githubusercontent.com/api-evangelist/archrock/refs/heads/main/json-schema/archrock-investor-relations-api-fleet-statistics-schema.json",
+  "example": {
+    "year": 42,
+    "quarter": 42,
+    "totalHorsepower": 42,
+    "activeHorsepower": 42,
+    "utilizationRate": 1.0,
+    "averageHorsepowerPerUnit": 1.0,
+    "totalUnits": 42,
+    "newUnitDeployments": 42,
+    "unitRetirements": 42
+  }
+}

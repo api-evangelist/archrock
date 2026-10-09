@@ -1,0 +1,252 @@
+{
+  "item": [
+    {
+      "id": "5145fc61-4edf-40a6-b362-6e820b57d3ff",
+      "name": "Fleet",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "70eab501-483a-42e0-abc5-b35814fed658",
+          "name": "Get compression fleet statistics",
+          "request": {
+            "name": "Get compression fleet statistics",
+            "description": {},
+            "url": {
+              "path": [
+                "fleet",
+                "statistics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "quarter",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e1335b41-001c-4db7-8bff-fc8bac24e8fa",
+              "name": "Fleet statistics and utilization metrics",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    "statistics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "year",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "quarter",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"year\": 1835,\n  \"quarter\": 7661,\n  \"totalHorsepower\": 3164,\n  \"activeHorsepower\": 9805,\n  \"utilizationRate\": 1861.8980815258212,\n  \"averageHorsepowerPerUnit\": 7079.252299146213,\n  \"totalUnits\": 529,\n  \"newUnitDeployments\": 4132,\n  \"unitRetirements\": 1354\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e15f94a8-47cc-4e78-8a43-bdb9a8b6d2a5",
+          "name": "List compression equipment",
+          "request": {
+            "name": "List compression equipment",
+            "description": {},
+            "url": {
+              "path": [
+                "fleet",
+                "equipment"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2c91c7fe-8c0e-4431-8d5c-06f134305438",
+              "name": "List of compression equipment",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fleet",
+                    "equipment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 2950,\n  \"offset\": 4545,\n  \"limit\": 7919,\n  \"equipment\": [\n    {\n      \"id\": \"string\",\n      \"unitNumber\": \"string\",\n      \"horsepowerRating\": 5910,\n      \"engineType\": \"string\",\n      \"compressionType\": \"string\",\n      \"status\": \"active\",\n      \"location\": \"string\",\n      \"customer\": \"string\",\n      \"deploymentDate\": \"2005-04-24\"\n    },\n    {\n      \"id\": \"string\",\n      \"unitNumber\": \"string\",\n      \"horsepowerRating\": 2683,\n      \"engineType\": \"string\",\n      \"compressionType\": \"string\",\n      \"status\": \"idle\",\n      \"location\": \"string\",\n      \"customer\": \"string\",\n      \"deploymentDate\": \"2002-03-27\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.archrock.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e0e9fee2-9931-4a99-b31e-59e1ee1806e0",
+    "name": "Archrock Investor Relations Financials Fleet API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API providing access to Archrock investor relations data including financial reports, compression fleet statistics, SEC filings, and operational performance metrics.\n\nContact Support:\n Name: Archrock Investor Relations",
+      "type": "text/plain"
+    }
+  }
+}

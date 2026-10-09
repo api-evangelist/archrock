@@ -1,0 +1,77 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Archrock Investor Relations Financials Fleet API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Fleet",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get compression fleet statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.archrock.com/v1/fleet/statistics",
+            "params": [
+              {
+                "name": "year",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "quarter",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get compression fleet statistics"
+        },
+        {
+          "info": {
+            "name": "List compression equipment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.archrock.com/v1/fleet/equipment",
+            "params": [
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List compression equipment"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

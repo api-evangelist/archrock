@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/archrock/refs/heads/main/json-schema/archrock-investor-relations-api-fleet-statistics-schema.json",
+  "title": "FleetStatistics",
+  "type": "object",
+  "properties": {
+    "year": {
+      "type": "integer"
+    },
+    "quarter": {
+      "type": "integer"
+    },
+    "totalHorsepower": {
+      "type": "integer",
+      "description": "Total fleet horsepower"
+    },
+    "activeHorsepower": {
+      "type": "integer",
+      "description": "Active fleet horsepower"
+    },
+    "utilizationRate": {
+      "type": "number",
+      "description": "Fleet utilization rate as percentage"
+    },
+    "averageHorsepowerPerUnit": {
+      "type": "number"
+    },
+    "totalUnits": {
+      "type": "integer"
+    },
+    "newUnitDeployments": {
+      "type": "integer"
+    },
+    "unitRetirements": {
+      "type": "integer"
+    }
+  }
+}

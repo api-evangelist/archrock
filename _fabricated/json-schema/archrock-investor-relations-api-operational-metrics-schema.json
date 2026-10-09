@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/archrock/refs/heads/main/json-schema/archrock-investor-relations-api-operational-metrics-schema.json",
+  "title": "OperationalMetrics",
+  "type": "object",
+  "properties": {
+    "year": {
+      "type": "integer"
+    },
+    "quarter": {
+      "type": "integer"
+    },
+    "contractOperationsRevenue": {
+      "type": "number"
+    },
+    "aftermarketServicesRevenue": {
+      "type": "number"
+    },
+    "averageActiveHorsepower": {
+      "type": "integer"
+    },
+    "revenuePerHorsepower": {
+      "type": "number"
+    },
+    "grossMarginContractOps": {
+      "type": "number"
+    },
+    "grossMarginAftermarket": {
+      "type": "number"
+    },
+    "safetyIncidentRate": {
+      "type": "number"
+    },
+    "customerCount": {
+      "type": "integer"
+    }
+  }
+}

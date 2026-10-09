@@ -1,0 +1,16 @@
+{
+  "$schema": "https://raw.githubusercontent.com/api-evangelist/archrock/refs/heads/main/json-schema/archrock-investor-relations-api-quarterly-financials-schema.json",
+  "example": {
+    "year": 42,
+    "quarter": 42,
+    "revenue": 1.0,
+    "grossMargin": 1.0,
+    "ebitda": 1.0,
+    "netIncome": 1.0,
+    "earningsPerShare": 1.0,
+    "dividendPerShare": 1.0,
+    "operatingCashFlow": 1.0,
+    "capitalExpenditures": 1.0,
+    "reportDate": "2026-01-01"
+  }
+}

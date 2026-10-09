@@ -1,0 +1,295 @@
+openapi: 3.0.3
+info:
+  title: Archrock Investor Relations API
+  description: API providing access to Archrock investor relations data including financial reports, compression fleet statistics, SEC filings, and operational performance metrics.
+  version: 1.0.0
+  contact:
+    name: Archrock Investor Relations
+    url: https://www.archrock.com/investor-relations
+servers:
+  - url: https://api.archrock.com/v1
+    description: Production
+security:
+  - ApiKeyAuth: []
+paths:
+  /financials/quarterly:
+    get:
+      summary: Get quarterly financial results
+      operationId: getQuarterlyFinancials
+      tags: [Financials]
+      parameters:
+        - name: year
+          in: query
+          description: Fiscal year
+          schema:
+            type: integer
+        - name: quarter
+          in: query
+          description: Fiscal quarter (1-4)
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 4
+      responses:
+        '200':
+          description: Quarterly financial results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuarterlyFinancials'
+        '401':
+          description: Unauthorized
+  /fleet/statistics:
+    get:
+      summary: Get compression fleet statistics
+      operationId: getFleetStatistics
+      tags: [Fleet]
+      parameters:
+        - name: year
+          in: query
+          schema:
+            type: integer
+        - name: quarter
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Fleet statistics and utilization metrics
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FleetStatistics'
+  /fleet/equipment:
+    get:
+      summary: List compression equipment
+      operationId: listEquipment
+      tags: [Fleet]
+      parameters:
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum: [active, idle, maintenance]
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 20
+        - name: offset
+          in: query
+          schema:
+            type: integer
+            default: 0
+      responses:
+        '200':
+          description: List of compression equipment
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EquipmentList'
+  /sec-filings:
+    get:
+      summary: List SEC filings
+      operationId: listSecFilings
+      tags: [SEC Filings]
+      parameters:
+        - name: type
+          in: query
+          schema:
+            type: string
+            enum: [10-K, 10-Q, 8-K, DEF14A, SC13G]
+        - name: year
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 20
+        - name: offset
+          in: query
+          schema:
+            type: integer
+            default: 0
+      responses:
+        '200':
+          description: List of SEC filings
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SecFilingList'
+  /operations/metrics:
+    get:
+      summary: Get operational performance metrics
+      operationId: getOperationalMetrics
+      tags: [Operations]
+      parameters:
+        - name: year
+          in: query
+          schema:
+            type: integer
+        - name: quarter
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Operational performance metrics
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationalMetrics'
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+  schemas:
+    QuarterlyFinancials:
+      type: object
+      properties:
+        year:
+          type: integer
+        quarter:
+          type: integer
+        revenue:
+          type: number
+          description: Total revenue in millions USD
+        grossMargin:
+          type: number
+          description: Gross margin percentage
+        ebitda:
+          type: number
+          description: Adjusted EBITDA in millions USD
+        netIncome:
+          type: number
+          description: Net income in millions USD
+        earningsPerShare:
+          type: number
+        dividendPerShare:
+          type: number
+        operatingCashFlow:
+          type: number
+        capitalExpenditures:
+          type: number
+        reportDate:
+          type: string
+          format: date
+    FleetStatistics:
+      type: object
+      properties:
+        year:
+          type: integer
+        quarter:
+          type: integer
+        totalHorsepower:
+          type: integer
+          description: Total fleet horsepower
+        activeHorsepower:
+          type: integer
+          description: Active fleet horsepower
+        utilizationRate:
+          type: number
+          description: Fleet utilization rate as percentage
+        averageHorsepowerPerUnit:
+          type: number
+        totalUnits:
+          type: integer
+        newUnitDeployments:
+          type: integer
+        unitRetirements:
+          type: integer
+    Equipment:
+      type: object
+      properties:
+        id:
+          type: string
+        unitNumber:
+          type: string
+        horsepowerRating:
+          type: integer
+        engineType:
+          type: string
+        compressionType:
+          type: string
+        status:
+          type: string
+          enum: [active, idle, maintenance]
+        location:
+          type: string
+        customer:
+          type: string
+        deploymentDate:
+          type: string
+          format: date
+    EquipmentList:
+      type: object
+      properties:
+        total:
+          type: integer
+        offset:
+          type: integer
+        limit:
+          type: integer
+        equipment:
+          type: array
+          items:
+            $ref: '#/components/schemas/Equipment'
+    SecFiling:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          enum: [10-K, 10-Q, 8-K, DEF14A, SC13G]
+        filingDate:
+          type: string
+          format: date
+        periodOfReport:
+          type: string
+        description:
+          type: string
+        secUrl:
+          type: string
+        documentUrl:
+          type: string
+    SecFilingList:
+      type: object
+      properties:
+        total:
+          type: integer
+        offset:
+          type: integer
+        limit:
+          type: integer
+        filings:
+          type: array
+          items:
+            $ref: '#/components/schemas/SecFiling'
+    OperationalMetrics:
+      type: object
+      properties:
+        year:
+          type: integer
+        quarter:
+          type: integer
+        contractOperationsRevenue:
+          type: number
+        aftermarketServicesRevenue:
+          type: number
+        averageActiveHorsepower:
+          type: integer
+        revenuePerHorsepower:
+          type: number
+        grossMarginContractOps:
+          type: number
+        grossMarginAftermarket:
+          type: number
+        safetyIncidentRate:
+          type: number
+        customerCount:
+          type: integer

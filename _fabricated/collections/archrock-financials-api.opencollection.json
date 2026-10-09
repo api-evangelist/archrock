@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Archrock Investor Relations Financials API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Financials",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get quarterly financial results",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.archrock.com/v1/financials/quarterly",
+            "params": [
+              {
+                "name": "year",
+                "value": "",
+                "type": "query",
+                "description": "Fiscal year"
+              },
+              {
+                "name": "quarter",
+                "value": "",
+                "type": "query",
+                "description": "Fiscal quarter (1-4)"
+              }
+            ]
+          },
+          "docs": "Get quarterly financial results"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://raw.githubusercontent.com/api-evangelist/archrock/refs/heads/main/json-schema/archrock-investor-relations-api-sec-filing-schema.json",
+  "example": {
+    "id": "example-string",
+    "type": "10-K",
+    "filingDate": "2026-01-01",
+    "periodOfReport": "example-string",
+    "description": "example-string",
+    "secUrl": "example-string",
+    "documentUrl": "example-string"
+  }
+}

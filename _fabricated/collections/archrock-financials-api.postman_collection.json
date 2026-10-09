@@ -1,0 +1,197 @@
+{
+  "item": [
+    {
+      "id": "85aecb70-d44e-4762-a890-8278fae1f49a",
+      "name": "Financials",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e5e39c20-c0c7-4f3d-86d9-cf16ed6b1abf",
+          "name": "Get quarterly financial results",
+          "request": {
+            "name": "Get quarterly financial results",
+            "description": {},
+            "url": {
+              "path": [
+                "financials",
+                "quarterly"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<integer>",
+                  "description": "Fiscal year"
+                },
+                {
+                  "disabled": false,
+                  "key": "quarter",
+                  "value": "<integer>",
+                  "description": "Fiscal quarter (1-4)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f9db4ba6-8822-4dbd-ad75-0170ae933d05",
+              "name": "Quarterly financial results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "financials",
+                    "quarterly"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "year",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "quarter",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"year\": 8210,\n  \"quarter\": 3120,\n  \"revenue\": 8718.561917673822,\n  \"grossMargin\": 5801.720853292768,\n  \"ebitda\": 5069.982529263764,\n  \"netIncome\": 5678.35122414647,\n  \"earningsPerShare\": 3280.6540052465584,\n  \"dividendPerShare\": 9985.10270664119,\n  \"operatingCashFlow\": 5033.285680559955,\n  \"capitalExpenditures\": 4105.26174750382,\n  \"reportDate\": \"1956-05-21\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "86ce390a-7d46-4409-99c1-82d363e2f6e4",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "financials",
+                    "quarterly"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "year",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "quarter",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.archrock.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4825eb26-4e9c-48ed-84fe-b462a055641f",
+    "name": "Archrock Investor Relations Financials API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API providing access to Archrock investor relations data including financial reports, compression fleet statistics, SEC filings, and operational performance metrics.\n\nContact Support:\n Name: Archrock Investor Relations",
+      "type": "text/plain"
+    }
+  }
+}

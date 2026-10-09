@@ -1,0 +1,30 @@
+{
+  "provider": "archrock",
+  "sources": [
+    "_original/archrock-investor-relations-api.yaml"
+  ],
+  "outputs": [
+    "archrock-financials-api-openapi.yml",
+    "archrock-fleet-api-openapi.yml",
+    "archrock-operations-api-openapi.yml",
+    "archrock-sec-filings-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "archrock-investor-relations-api.yaml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "archrock-investor-relations-api.yaml: declared missing tag: Financials",
+    "archrock-investor-relations-api.yaml: declared missing tag: Fleet",
+    "archrock-investor-relations-api.yaml: declared missing tag: Operations",
+    "archrock-investor-relations-api.yaml: declared missing tag: SEC Filings",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "archrock-financials-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "archrock-fleet-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "archrock-operations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "archrock-sec-filings-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
+}

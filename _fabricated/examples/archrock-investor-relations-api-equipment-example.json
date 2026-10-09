@@ -1,0 +1,14 @@
+{
+  "$schema": "https://raw.githubusercontent.com/api-evangelist/archrock/refs/heads/main/json-schema/archrock-investor-relations-api-equipment-schema.json",
+  "example": {
+    "id": "example-string",
+    "unitNumber": "example-string",
+    "horsepowerRating": 42,
+    "engineType": "example-string",
+    "compressionType": "example-string",
+    "status": "active",
+    "location": "example-string",
+    "customer": "example-string",
+    "deploymentDate": "2026-01-01"
+  }
+}

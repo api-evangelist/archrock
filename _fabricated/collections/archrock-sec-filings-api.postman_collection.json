@@ -1,0 +1,162 @@
+{
+  "item": [
+    {
+      "id": "14c18145-ef5e-4cd0-ade6-ca4bc6575a64",
+      "name": "SEC Filings",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c9ee39be-e6e1-4903-b33a-83764474c67c",
+          "name": "List SEC filings",
+          "request": {
+            "name": "List SEC filings",
+            "description": {},
+            "url": {
+              "path": [
+                "sec-filings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "459be17f-c0a9-4668-8664-5028da163b77",
+              "name": "List of SEC filings",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sec-filings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 8846,\n  \"offset\": 235,\n  \"limit\": 6455,\n  \"filings\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"SC13G\",\n      \"filingDate\": \"1961-06-28\",\n      \"periodOfReport\": \"string\",\n      \"description\": \"string\",\n      \"secUrl\": \"string\",\n      \"documentUrl\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"type\": \"10-Q\",\n      \"filingDate\": \"1970-03-28\",\n      \"periodOfReport\": \"string\",\n      \"description\": \"string\",\n      \"secUrl\": \"string\",\n      \"documentUrl\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.archrock.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b6b353c3-94f1-4f54-b54a-b2809cf99c3c",
+    "name": "Archrock Investor Relations Financials SEC Filings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API providing access to Archrock investor relations data including financial reports, compression fleet statistics, SEC filings, and operational performance metrics.\n\nContact Support:\n Name: Archrock Investor Relations",
+      "type": "text/plain"
+    }
+  }
+}

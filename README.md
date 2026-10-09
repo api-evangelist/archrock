@@ -79,12 +79,13 @@ Archrock (NYSE: AROC) is the premier provider of natural gas compression service
 
 ## APIs
 
-### Archrock Investor Relations API
+Archrock publishes no API. An "Archrock Investor Relations API" was listed here until 2026-09-26; it was
+written by API Evangelist tooling, not by Archrock, and its host (api.archrock.com) does not exist. It is
+kept for audit in `_fabricated/`. The one real programmatic source of Archrock data is the SEC's EDGAR
+submissions API for CIK 0001389050, a third-party government API:
 
-API providing access to Archrock investor relations data including financial reports, compression fleet statistics, SEC filings, and operational performance metrics.
-
-- **Documentation:** https://www.archrock.com/investor-relations
-- **OpenAPI:** https://raw.githubusercontent.com/api-evangelist/archrock/refs/heads/main/openapi/archrock-investor-relations-api.yaml
+- **SEC EDGAR Filings:** https://data.sec.gov/submissions/CIK0001389050.json
+  ([EDGAR API documentation](https://www.sec.gov/search-filings/edgar-application-programming-interfaces))
 
 ## Resources
 

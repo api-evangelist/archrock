@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/archrock/refs/heads/main/json-schema/archrock-investor-relations-api-quarterly-financials-schema.json",
+  "title": "QuarterlyFinancials",
+  "type": "object",
+  "properties": {
+    "year": {
+      "type": "integer"
+    },
+    "quarter": {
+      "type": "integer"
+    },
+    "revenue": {
+      "type": "number",
+      "description": "Total revenue in millions USD"
+    },
+    "grossMargin": {
+      "type": "number",
+      "description": "Gross margin percentage"
+    },
+    "ebitda": {
+      "type": "number",
+      "description": "Adjusted EBITDA in millions USD"
+    },
+    "netIncome": {
+      "type": "number",
+      "description": "Net income in millions USD"
+    },
+    "earningsPerShare": {
+      "type": "number"
+    },
+    "dividendPerShare": {
+      "type": "number"
+    },
+    "operatingCashFlow": {
+      "type": "number"
+    },
+    "capitalExpenditures": {
+      "type": "number"
+    },
+    "reportDate": {
+      "type": "string",
+      "format": "date"
+    }
+  }
+}
