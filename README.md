@@ -66,39 +66,174 @@
 
 Archrock (NYSE: AROC) is the premier provider of natural gas compression services and equipment to customers in the oil and natural gas industry throughout the United States. The company operates a large fleet of compression equipment and provides contract operations and aftermarket services.
 
-**URL:** https://raw.githubusercontent.com/api-evangelist/archrock/refs/heads/main/apis.yml
+**Areas:** Natural Gas · Compression Services · Oil and Gas · Energy · Industrial · NYSE: AROC
 
-## Tags
+## Archrock on APIs.io
 
-- Natural Gas
-- Compression Services
-- Oil And Gas
-- Energy
-- Industrial
-- NYSE: AROC
+Everything profiled for Archrock is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/archrock/](https://apis.io/providers/archrock/)** — or go straight to one of the APIs or properties below.
 
-## APIs
+### APIs (1)
 
-Archrock publishes no API. An "Archrock Investor Relations API" was listed here until 2026-09-26; it was
-written by API Evangelist tooling, not by Archrock, and its host (api.archrock.com) does not exist. It is
-kept for audit in `_fabricated/`. The one real programmatic source of Archrock data is the SEC's EDGAR
-submissions API for CIK 0001389050, a third-party government API:
+- [SEC EDGAR Filings (Archrock, Inc., CIK 1389050)](https://apis.io/apis/archrock/sec-edgar-filings/) — Machine-readable filing data for Archrock is available from the U.S. Securities and Exchange Commission, not from the company. The SEC EDGAR submissions API…
 
-- **SEC EDGAR Filings:** https://data.sec.gov/submissions/CIK0001389050.json
-  ([EDGAR API documentation](https://www.sec.gov/search-filings/edgar-application-programming-interfaces))
+### Published properties
 
-## Resources
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- [Portal](https://www.archrock.com/)
-- [Blog](https://www.archrock.com/news)
+#### Agentic access (1)
 
-## Timestamps
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- **Created:** 2026-03-23
-- **Modified:** 2026-04-19
+- [Moved to /providers/archrock/](https://apis.io/agentic-access/archrock/archrock-agentic-access/)
 
-## Maintainers
+#### JSON Schema (7)
 
-**FN:** Kin Lane
+The data models the API reads and writes.
 
-**Email:** kin@apievangelist.com
+- [Moved to /providers/archrock/](https://apis.io/schemas/archrock/archrock-investor-relations-api-equipment/)
+- [Moved to /providers/archrock/](https://apis.io/schemas/archrock/archrock-investor-relations-api-equipment-list/)
+- [Moved to /providers/archrock/](https://apis.io/schemas/archrock/archrock-investor-relations-api-fleet-statistics/)
+- [Moved to /providers/archrock/](https://apis.io/schemas/archrock/archrock-investor-relations-api-operational-metrics/)
+- [Moved to /providers/archrock/](https://apis.io/schemas/archrock/archrock-investor-relations-api-quarterly-financials/)
+- [Moved to /providers/archrock/](https://apis.io/schemas/archrock/archrock-investor-relations-api-sec-filing/)
+- [Moved to /providers/archrock/](https://apis.io/schemas/archrock/archrock-investor-relations-api-sec-filing-list/)
+
+#### JSON Structure (7)
+
+Data models expressed in JSON Structure.
+
+- [Moved to /providers/archrock/](https://apis.io/json-structure/archrock/archrock-investor-relations-api-equipment-list-structure/)
+- [Moved to /providers/archrock/](https://apis.io/json-structure/archrock/archrock-investor-relations-api-equipment-structure/)
+- [Moved to /providers/archrock/](https://apis.io/json-structure/archrock/archrock-investor-relations-api-fleet-statistics-structure/)
+- [Moved to /providers/archrock/](https://apis.io/json-structure/archrock/archrock-investor-relations-api-operational-metrics-structure/)
+- [Moved to /providers/archrock/](https://apis.io/json-structure/archrock/archrock-investor-relations-api-quarterly-financials-structure/)
+- [Moved to /providers/archrock/](https://apis.io/json-structure/archrock/archrock-investor-relations-api-sec-filing-list-structure/)
+- [Moved to /providers/archrock/](https://apis.io/json-structure/archrock/archrock-investor-relations-api-sec-filing-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Moved to /providers/archrock/](https://apis.io/jsonld/archrock/archrock-investor-relations-api-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Archrock Vocabulary](https://apis.io/vocabularies/archrock/archrock-vocabulary/)
+
+#### Examples (7)
+
+Example requests and responses.
+
+- [Moved to /providers/archrock/](https://apis.io/examples/archrock/archrock-investor-relations-api-equipment-example/)
+- [Moved to /providers/archrock/](https://apis.io/examples/archrock/archrock-investor-relations-api-equipment-list-example/)
+- [Moved to /providers/archrock/](https://apis.io/examples/archrock/archrock-investor-relations-api-fleet-statistics-example/)
+- [Moved to /providers/archrock/](https://apis.io/examples/archrock/archrock-investor-relations-api-operational-metrics-example/)
+- [Moved to /providers/archrock/](https://apis.io/examples/archrock/archrock-investor-relations-api-quarterly-financials-example/)
+- [Moved to /providers/archrock/](https://apis.io/examples/archrock/archrock-investor-relations-api-sec-filing-example/)
+- [Moved to /providers/archrock/](https://apis.io/examples/archrock/archrock-investor-relations-api-sec-filing-list-example/)
+
+#### Collections (4)
+
+Postman and Open Collection request collections.
+
+- [Moved to /providers/archrock/](https://apis.io/collections/archrock/open-archrock-financials-api/)
+- [Moved to /providers/archrock/](https://apis.io/collections/archrock/open-archrock-fleet-api/)
+- [Moved to /providers/archrock/](https://apis.io/collections/archrock/open-archrock-operations-api/)
+- [Moved to /providers/archrock/](https://apis.io/collections/archrock/open-archrock-sec-filings-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Moved to /providers/archrock/](https://apis.io/rules/archrock/archrock-jsonschema-spectral-rules/)
+- [Moved to /providers/archrock/](https://apis.io/rules/archrock/archrock-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Moved to /providers/archrock/](https://apis.io/security/archrock/archrock-authentication/)
+- [Archrock Domain Security](https://apis.io/security/archrock/archrock-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Archrock Plans Pricing](https://apis.io/plans/archrock/archrock-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Archrock Rate Limits](https://apis.io/rate-limits/archrock/archrock-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Archrock Finops](https://apis.io/finops/archrock/archrock-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.archrock.com/)
+- [Support](https://www.archrock.com/contact/)
+- [Blog](https://www.archrock.com/news-media/)
+- [Terms of service](https://www.archrock.com/terms-of-use/)
+- [Privacy policy](https://www.archrock.com/privacy/)
+
+## API Evangelist rating
+
+**Kin Score 16.3** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 33.3 |
+| Access clarity | 21.1 |
+
+**Agent readiness 5.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | yes |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.5** — Energy & Utilities
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/archrock/](https://apis.io/providers/archrock/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Archrock: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/archrock/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
